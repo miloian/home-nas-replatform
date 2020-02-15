@@ -76,10 +76,8 @@ Run:
 
 ### Create subvolumes
 
-	```BASH
 	sudo btrfs subvolume create /tank/ssd/appdata
 	sudo btrfs subvolume create /tank/rust/{movies,tv,misc,downloads}
-	```
 
 ### Create the Subvolume mountpoints
 
