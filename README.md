@@ -9,6 +9,7 @@ This project is to replaform my home UnRAID server to a Debian 10 based server w
 #### BTRFS Partition Setup:
 
 | Disk | Partition | Array | Partition Size  | Mountpoint      | Mode  |
+|------|-----------|-------|-----------------|-----------------|-------|
 | 1    | 1         | 1     | 80GB            | /var/lib/docker | RAID1 |
 | 2    | 1         | 1     | 80GB            | /var/lib/docker | RAID1 |
 | 1    | 2         | 2     | 420GB           | /tank/ssd       | RAID1 |
@@ -21,6 +22,7 @@ This project is to replaform my home UnRAID server to a Debian 10 based server w
 #### Subvolumes:
 
 | Array | Subvolume            | Mountpoint      |
+|-------|----------------------|-----------------|
 | 2     | /tank/ssd/appdata    | /var/docker     |
 | 3     | /tank/rust/movies    | /data/movies    |
 | 3     | /tank/rust/tv        | /data/tv        |
