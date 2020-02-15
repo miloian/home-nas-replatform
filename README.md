@@ -64,15 +64,9 @@ This project is to replaform my home UnRAID server to a Debian 10 based server w
 
 	sudo vi /etc/fstab
 
-	UUID=UUID_FROM_ABOVE_COMMAND	/tank/ssd		btrfs	ssd,noatime,autodefrag 0 0
 	#UUID=UUID_FROM_ABOVE_COMMAND	/var/lib/docker 	btrfs 	ssd,noatime,autodefrag 0 0
-	UUID=UUID_FROM_ABOVE_COMMAND 	/tank/rust 		btrfs 	noatime,autodefrag	0 0
 
 Note: Leave the docker entry commented out for now
-
-Run:
-
-	sudo mount -a
 
 ### Create subvolumes
 
@@ -88,11 +82,11 @@ Run:
 	sudo vi /etc/fstab
 
 
-	LABEL=ssd 		/data/appdata 		subvol=/appdata,defaults,noatime 		0  0
-	LABEL=rust 		/data/movies 		subvol=/movies,defaults,noatime 		0  0
-	LABEL=rust 		/data/tv 		subvol=/tv,defaults,noatime 			0  0
-	LABEL=rust 		/data/misc 		subvol=/misc,defaults,noatime 			0  0
-	LABEL=rust 		/data/downloads 	subvol=/downloads,defaults,noatime 		0  0
+	UUID= 		/data/appdata 		subvol=/appdata,defaults,noatime 		0  0
+	UUID= 		/data/movies 		subvol=/movies,defaults,noatime 		0  0
+	UUID= 		/data/tv 		subvol=/tv,defaults,noatime 			0  0
+	UUID= 		/data/misc 		subvol=/misc,defaults,noatime 			0  0
+	UUID= 		/data/downloads 	subvol=/downloads,defaults,noatime 		0  0
 
 ## Software Install
 
