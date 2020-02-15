@@ -29,7 +29,6 @@ This project is to replaform my home UnRAID server to a Debian 10 based server w
 | 3     | /tank/rust/misc      | /data/misc      |
 | 3     | /tank/rust/downloads | /data/downloads |
 
----
 ## Initial setup
 
 ### Install
@@ -40,7 +39,6 @@ This project is to replaform my home UnRAID server to a Debian 10 based server w
 
 	/sbin/adduser username sudo
 
----
 ## Volume prep
 
 ### Create Mount directory
@@ -66,9 +64,9 @@ This project is to replaform my home UnRAID server to a Debian 10 based server w
 
 	sudo vi /etc/fstab
 
-	UUID=UUID_FROM_ABOVE_COMMAND	/tank/ssd			btrfs	ssd,noatime,autodefrag 0 0
+	UUID=UUID_FROM_ABOVE_COMMAND	/tank/ssd		btrfs	ssd,noatime,autodefrag 0 0
 	#UUID=UUID_FROM_ABOVE_COMMAND	/var/lib/docker 	btrfs 	ssd,noatime,autodefrag 0 0
-	UUID=UUID_FROM_ABOVE_COMMAND 	/tank/rust 			btrfs 	noatime,autodefrag	0 0
+	UUID=UUID_FROM_ABOVE_COMMAND 	/tank/rust 		btrfs 	noatime,autodefrag	0 0
 
 Note: Leave the docker entry commented out for now
 
@@ -78,7 +76,7 @@ Run:
 
 ### Create subvolumes
 
-	```
+	```BASH
 	sudo btrfs subvolume create /tank/ssd/appdata
 	sudo btrfs subvolume create /tank/rust/{movies,tv,misc,downloads}
 	```
@@ -91,15 +89,13 @@ Run:
 
 	sudo vi /etc/fstab
 
-	```
+
 	LABEL=ssd 		/data/appdata 		subvol=/appdata,defaults,noatime 		0  0
 	LABEL=rust 		/data/movies 		subvol=/movies,defaults,noatime 		0  0
-	LABEL=rust 		/data/tv 			subvol=/tv,defaults,noatime 			0  0
-	LABEL=rust 		/data/misc 			subvol=/misc,defaults,noatime 			0  0
+	LABEL=rust 		/data/tv 		subvol=/tv,defaults,noatime 			0  0
+	LABEL=rust 		/data/misc 		subvol=/misc,defaults,noatime 			0  0
 	LABEL=rust 		/data/downloads 	subvol=/downloads,defaults,noatime 		0  0
-	```
 
----
 ## Software Install
 
 ### Install Docker
